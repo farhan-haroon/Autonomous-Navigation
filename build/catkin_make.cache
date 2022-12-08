@@ -1,0 +1,2 @@
+move_robot
+-DCATKIN_DEVEL_PREFIX=/home/oem/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/oem/catkin_ws/install -G Unix Makefiles
