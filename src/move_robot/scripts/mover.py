@@ -3,7 +3,7 @@
 import rospy
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String
-from newfile import path_planning
+from path_generator import path_planning
 import time 
 
 
@@ -16,11 +16,12 @@ class mover(path_planning):
         self.dir2 = self.end_dir
         # print(path)
         # print(len(path))
+        self.publisher = rospy.Publisher('cmd_vel', Twist, queue_size=10)
+        rospy.init_node('mover', anonymous=True)
         self.motion()
         
     def motion(self):
-        publisher = rospy.Publisher('cmd_vel', Twist, queue_size=10)
-        rospy.init_node('mover', anonymous=True)
+
         cmd = Twist()
         
         print("\nPlace the TurtleBot facing North\n")
@@ -55,16 +56,31 @@ class mover(path_planning):
 
                 if new_dir == old_dir:
                     cmd.linear.x = 1.0
-                    publisher.publish(cmd)
-                    time.sleep(2)
+                    self.publish(cmd, 2, False)       
 
                 elif (new_dir == "E"):
-                    cmd.angular.z = 1.0
-                    publisher.publish(cmd)
-                    time.sleep(2)
 
-                elif (new_dir == "W"):
-                    cmd.angular.z = 
+                    if old_dir == "N":
+                        cmd.angular.z = 1.0
+                        self.publish(cmd, 2, True)
+
+                    elif old_dir == "S":
+                        cmd.angular
+
+
+
+
+
+
+
+    def publish(self, amp, turn):
+        
+        obj = Twist()
+
+        if (turn == True):
+            self.publisher.publish(amp)
+            time.sleep(2)
+            
 
 
 def main():
