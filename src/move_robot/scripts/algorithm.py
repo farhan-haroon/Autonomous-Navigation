@@ -360,6 +360,7 @@ class path_planning():
 
 def main():
 
+    print("Welcome!")
     print("Start Co-ordinates: ")
     x1 = int(input("Start X: "))
     y1 = int(input("Start Y: "))
