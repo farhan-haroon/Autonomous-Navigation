@@ -3,7 +3,7 @@ import numpy as np
 
 class map():
     # Open the maze image and make greyscale, and get its dimensions
-    im = Image.open('/home/oem/catkin_ws/src/move_robot/scripts/map.jpg').convert('L')
+    im = Image.open('C:/Users/Hp/Desktop/Path PLaning/Autonomous-Path-Planning/src/move_robot/scripts/map.jpg').convert('L')
     w, h = im.size
 
     # Ensure all black pixels are 0 and all white pixels are 1
