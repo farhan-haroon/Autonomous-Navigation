@@ -2,16 +2,16 @@
 
 # Importing the necessary libraries
 import math
-import rospy
-from geometry_msgs.msg import Twist
+#import rospy
+#from geometry_msgs.msg import Twist
 
 class mover():
 
     def __init__(self, path,):
 
-        rospy.init_node('robot_mover')
-        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size = 10)
-        rate = rospy.Rate(5)
+        #rospy.init_node('robot_mover')
+        #self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size = 10)
+        #rate = rospy.Rate(5)
         self.path = path
 
     # Function to move the robot straight
@@ -22,17 +22,17 @@ class mover():
             dist = 0.045 * math.sqrt(2) * t
         
         time = dist / 0.05
-        end_time = rospy.get_time() + time
-        msg = Twist()
+        #end_time = rospy.get_time() + time
+        #msg = Twist()
 
         print("\nMoving by ", dist, "m")
         print("For time: ", time,"s")
         print("At velocity: 0.05 m/s")
         print("Times: ",t, "\n")
 
-        while rospy.get_time() < end_time:
-            msg.linear.x = 0.05
-            self.pub.publish(msg)
+        #while rospy.get_time() < end_time:
+            #msg.linear.x = 0.05
+            #self.pub.publish(msg)
 
 
     # Function to turn the robot left
@@ -123,8 +123,7 @@ class mover():
                 if current_dir == "NE":
                     self.turn_right(45)
                     b = b + 1
-                elif current_dir == "NW":math
-#import rospy
+                elif current_dir == "NW":
                     self.turn_left(45)
                     b = b + 1
                 elif current_dir == "E":
@@ -168,8 +167,7 @@ class mover():
                     self.turn_left(90)
                     a = a + 1
                 elif current_dir == "S":
-                    self.turn_right(90)math
-#import rospy
+                    self.turn_right(90)
                     a = a + 1
 
                 previous_dir = current_dir
@@ -207,8 +205,7 @@ class mover():
                     self.turn_right(45)
                     b = b + 1
                 elif current_dir == "SE":
-                    self.turn_right(90)math
-#import rospy
+                    self.turn_right(90)
                     a = a + 1
 
                 previous_dir = current_dir
@@ -240,8 +237,7 @@ class mover():
                 elif current_dir == "SW":
                     self.turn_right(90)
                     a = a + 1
-                elif current_dir == "E":math
-#import rospy
+                elif current_dir == "E":
                     self.turn_left(45)
                     b = b + 1
                 elif current_dir == "S":
