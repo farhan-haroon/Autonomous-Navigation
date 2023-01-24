@@ -2,16 +2,17 @@
 
 # Importing the necessary libraries
 import math
-#import rospy
-#from geometry_msgs.msg import Twist
+import rospy
+from geometry_msgs.msg import Twist
+import time
 
 class mover():
 
     def __init__(self, path,):
 
-        #rospy.init_node('robot_mover')
-        #self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size = 10)
-        #rate = rospy.Rate(5)
+        rospy.init_node('robot_mover')
+        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size = 10)
+        rate = rospy.Rate(10) #Hz
         self.path = path
 
     # Function to move the robot straight
@@ -21,35 +22,107 @@ class mover():
         else:
             dist = 0.045 * math.sqrt(2) * t
         
-        time = dist / 0.05
-        #end_time = rospy.get_time() + time
-        #msg = Twist()
+        moving_time = dist / 0.05
+        end_time = rospy.get_time() + moving_time
+        msg = Twist()
 
         print("\nMoving by ", dist, "m")
-        print("For time: ", time,"s")
+        print("For time: ", moving_time,"s")
         print("At velocity: 0.05 m/s")
         print("Times: ",t, "\n")
 
-        #while rospy.get_time() < end_time:
-            #msg.linear.x = 0.05
-            #self.pub.publish(msg)
+        while rospy.get_time() < end_time:
+            msg.linear.x = 0.05
+            self.pub.publish(msg)
+
+        msg.linear.x = 0.0
+        self.pub.publish(msg)
+        time.sleep(2)
 
 
     # Function to turn the robot left
     def turn_left(self, deg):
+        
         print("\tTurning left by: ", deg, "\n")
+        
         if deg == 45:
             print("\t& moving by 1 diagonal step\n")
+
+            # Rotating the robot by 45 degrees port
+
+            msg = Twist()
+            msg.angular.z = - 0.1
+            msg.linear.x = 0.0
+            now_time = rospy.get_time()
+            
+            while rospy.get_time() < now_time + 5:
+                self.pub.publish(msg)
+
+            # Set velocities for 1 diagonal movement
+
+            msg.linear.x = 0.05
+            msg.angular.z = 0.0
+            time.sleep(2)
+            now_time = rospy.get_time()
+
+            # Move by 1 diagonal distance
+
+            while rospy.get_time() < now_time + 1.26:
+                self.pub.publish(msg)
+
+            # Stop everything
+
+            msg.linear.x = 0.0
+            self.pub.publish(msg)
+
+            print("Rotated by 45 degrees Port.")
+            time.sleep(2)
+
         elif deg == 90:
             print ("\t& moving by 1 straight step\n")
 
+
     # Function to turn the robot right 
     def turn_right(self, deg):
+        
         print("\tTurning right by: ", deg, "\n")
+        
         if deg == 45:
             print("\t& moving by 1 diagonal step\n")
+
+            # Rotating the robot by 45 degrees Starboard.
+ 
+            msg = Twist()
+            msg.linear.x = 0.0
+            msg.angular.z = 0.1
+            now_time = rospy.get_time()
+            
+            while rospy.get_time() < now_time + 5:
+                self.pub.publish(msg)
+
+            # Set velocities for 1 diagonal movement
+
+            msg.linear.x = 0.05
+            msg.angular.z = 0.0
+            time.sleep(2)
+            now_time = rospy.get_time()
+
+            # Move by 1 diagonal distance
+
+            while rospy.get_time() < now_time + 1.26:
+                self.pub.publish(msg)
+
+            # Stop everything
+            
+            msg.linear.x = 0.0
+            self.pub.publish(msg)
+
+            print("Rotated by 45 degrees Starboard.")
+            time.sleep(2)
+
         elif deg == 90:
             print ("\t& moving by 1 straight step\n")
+
 
     # Function to get the current direction by getting the previous direction
     def get_direction(self, current, previous):
