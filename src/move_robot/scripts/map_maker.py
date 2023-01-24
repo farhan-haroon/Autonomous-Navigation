@@ -3,14 +3,13 @@ import numpy as np
 
 class map():
     # Open the maze image and make greyscale, and get its dimensions
-    im = Image.open('C:/Users/Hp/Desktop/Path PLaning/Autonomous-Path-Planning/src/move_robot/scripts/map.jpg').convert('L')
-    w, h = im.size
+    im = Image.open('/home/oem/my_ws/src/move_robot/scripts/map.jpg').convert('L')
 
     # Ensure all black pixels are 0 and all white pixels are 1
     binary = im.point(lambda p: p > 128 and 1)
 
     # Resize to half its height and width so we can fit on Stack Overflow, get new dimensions
-    binary = binary.resize((w,h),Image.NEAREST)
+    binary = binary.resize((100, 100))
     w, h = binary.size
 
     # Convert to Numpy array - because that's how images are best stored and processed in Python
@@ -20,11 +19,11 @@ class map():
         for c in range(w):
             nim[r, c] = int(nim[r, c])
 
-    #np.savetxt("text2.txt", nim)
+    # np.savetxt("text2.txt", nim)
     
     # Print that puppy out 
-    #for r in range(h):
-        #for c in range(w):
-            #print(nim[r,c],end='')
-        #print()
+    # for r in range(h):
+        # for c in range(w):
+            # print(nim[r,c],end='')
+        # print()
 
