@@ -1,115 +1,95 @@
-#/!usr/bin/env python3
+# Importing the necessary libraries
+
 from map_maker import map
+import heapq
 
-class Node():
+# Function to determine the validity of the cell
 
-    def __init__(self, parent, position):
-        self.parent = parent
-        self.position = position
+def walkable(grid, x, y, robot_radius):
+    for i in range(-robot_radius, robot_radius+1):
+        for j in range(-robot_radius, robot_radius+1):
+            if not (0 <= x + i < len(grid) and 0 <= y + j < len(grid[0])):
+                return False
+            if grid[x + i][y + j] == 0:
+                return False
+    return True
 
-        self.g = 0
-        self.h = 0
-        self.f = 0
+# Function to find the path
 
-    def __eq__(self, other):
-        return self.position == other.position
+def find_path(grid, start, goal, robot_radius):
+    # Create a priority queue to store potential path squares
+    heap = [(0, start)]
+    # Create a dictionary to store the cost of each square
+    cost = {start: 0}
+    # Create a dictionary to store the parent of each square
+    parent = {start: None}
+    # Create a set to store visited squares
+    visited = set()
 
+    while heap:
+        # Pop the square with the lowest cost from the heap
+        current = heapq.heappop(heap)[1]
 
-def path_finder(maze, start, end):
-
-    start_node = Node(None, start)
-    start_node.g = start_node.h = start_node.f = 0
-    end_node = Node(None, end)
-    end_node.g = end_node.h = end_node.f = 0
-
-    open_list = []
-    closed_list = []
-
-
-    open_list.append(start_node)
-
-    # Loop until you find the end
-    while len(open_list) > 0:
-        # Get the current node
-        current_node = open_list[0]
-        current_index = 0
-        for index, item in enumerate(open_list):
-            if item.f < current_node.f:
-                current_node = item
-                current_index = index
-
-        # Pop current off open list, add to closed list
-        open_list.pop(current_index)
-        closed_list.append(current_node)
-
-        # Found the goal
-        if current_node == end_node:
+        # If the current square is the goal square, return the path
+        if current == goal:
             path = []
-            current = current_node
-            while current is not None:
-                path.append(current.position)
-                current = current.parent
-            return path[::-1] # Return reversed path
+            while current != start:
+                path.append(current)
+                current = parent[current]
+            path.append(start)
+            return path[::-1]
 
-        # Generate children
-        children = []
-        for new_position in [(0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (-1, 1), (1, -1), (1, 1)]: # Adjacent squares
+        # Mark the current square as visited
+        visited.add(current)
 
-            # Get node position
-            # print("Current Node Pos: ", type(current_node.position[0]))
-            # print("New Position: ", type(new_position[0]))
-            node_position = (current_node.position[0] + new_position[0], current_node.position[1] + new_position[1])
-
-            # Make sure within range
-            if node_position[0] > (len(maze) - 1) or node_position[0] < 0 or node_position[1] > (len(maze[len(maze)-1]) -1) or node_position[1] < 0:
+        # Check the squares adjacent to the current square
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1), (1, -1), (-1, 1), (-1, -1), (1, 1)]:
+            x, y = current
+            next_square = (x + dx, y + dy)
+            # If the next square is outside the grid or is an obstacle, skip it
+            if not walkable(grid, x + dx, y + dy, robot_radius):
                 continue
-
-            # Make sure walkable terrain
-            if maze[node_position[0]][node_position[1]] != 1:
+            # If the next square has been visited, skip it
+            if next_square in visited:
                 continue
+            # Calculate the cost of the next square
+            next_cost = cost[current] + 1
+            # If the next square is not in the heap or has a higher cost, update it
+            if next_square not in cost or next_cost < cost[next_square]:
+                cost[next_square] = next_cost
+                priority = next_cost + (abs(goal[0] - x - dx) + abs(goal[1] - y - dy))
+                heapq.heappush(heap, (priority, next_square))
+                parent[next_square] = current
 
-            # Create new node
-            new_node = Node(current_node, node_position)
-
-            # Append
-            children.append(new_node)
-
-        # Loop through children
-        for child in children:
-
-            # Child is on the closed list
-            for closed_child in closed_list:
-                if child == closed_child:
-                    continue
-
-            # Create the f, g, and h values
-            child.g = current_node.g + 1
-            child.h = ((child.position[0] - end_node.position[0]) ** 2) + ((child.position[1] - end_node.position[1]) ** 2)
-            child.f = child.g + child.h
-
-            # Child is already in the open list
-            for open_node in open_list:
-                if child == open_node and child.g > open_node.g:
-                    continue
-
-            # Add the child to the open list
-            open_list.append(child)
+    # If no path was found, return None
+    return None
 
 
-def main():
+grid = map.nim
 
-    maze = map.nim
-    print("Enter Start Co-ordinates: ")
-    st_x = int(input("Enter X: "))
-    st_y = int(input("Enter Y: "))
-    start = (st_x, st_y)
-    print("Enter End Co-ordinates: ")
-    en_x = int(input("Enter X: "))
-    en_y = int(input("Enter Y: "))
-    end = (en_x, en_y)
-    path = path_finder(maze, start, end)
+# Start and goal coordinates and Robot radius for obstacle clearance
+
+print("Enter Start Co-ordinates: ")
+st_x = int(input("Enter X: "))
+st_y = int(input("Enter Y: "))
+start = (st_x, st_y)
+
+print("Enter End Co-ordinates: ")
+en_x = int(input("Enter X: "))
+en_y = int(input("Enter Y: "))
+goal = (en_x, en_y)
+
+ROBOT_RADIUS = int(input("Robot Radius: "))
+
+if __name__ == "__main__":
+    path = find_path(grid, start, goal, ROBOT_RADIUS)
     print(path)
+    planned_grid = grid
 
+    for point in path:
+        planned_grid[point[0], point[1]] = "0"
 
-if __name__ == '__main__':
-    main()
+    for i in range (0, 100):
+        for j in range (0, 100):
+            print(planned_grid[i, j], end = "")
+        print()
