@@ -1,4 +1,4 @@
-# Importing the necessary libraries
+#!/usr/bin/env python3
 
 from map_maker import map
 import heapq
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     for point in path:
         planned_grid[point[0], point[1]] = "0"
 
-    for i in range (0, 100):
-        for j in range (0, 100):
+    for i in range (0, 70):
+        for j in range (0, 70):
             print(planned_grid[i, j], end = "")
         print()
