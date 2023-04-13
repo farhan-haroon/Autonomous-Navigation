@@ -12,3 +12,4 @@ Pre-requisites:
 * ROS NOETIC on host PC
 * Python - 2.7 or above
 
+## Steps to run:
