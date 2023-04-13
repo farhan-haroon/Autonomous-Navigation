@@ -1,5 +1,5 @@
 # Autonomous Navigation using Wheel Odometry
-This is a project that implements Single-Source-Shortest-Path finding - **A-Star** algorithm on **Differential Drive Robots** using **ROS** - (Robot Operating System). 
+This is a project that implements Single-Source-Shortest-Path finding - **A-Star** algorithm on **Differential Drive Robots** using **ROS** - (Robot Operating System) developed by **Mohd Farhan Haroon** at **Integral University, Lucknow.**. 
 
 The differential drive robot that we have used is the **Turtle Bot 3 - Waffle Pi** from **ROBOTIS** that runs ROS - **NOETIC**.
 
