@@ -13,3 +13,6 @@ Pre-requisites:
 * Python - 2.7 or above
 
 ## Steps to run:
+
+Execute the following steps to implement Autonomous Navigation on your robot:
+
