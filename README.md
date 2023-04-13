@@ -16,3 +16,4 @@ Pre-requisites:
 
 Execute the following steps to implement Autonomous Navigation on your robot:
 
+1. **SLAM:** Run SLAM - (Simultaneous Localisation )
