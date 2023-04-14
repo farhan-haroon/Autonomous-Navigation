@@ -42,7 +42,7 @@ The map is visualised using RViz that is launched with the SLAM node.
 ```
 $ rosrun map_server map_saver -f ~/map
 ```
-THe destination folder to save the map can be defined after _-f_ (/home/${username}) in this case.
+THe destination folder to save the map can be defined after _-f_ (/home/${username} in this case).
 
 ### Matrix Generation:
 
@@ -50,5 +50,7 @@ The ***map_maker.py*** converts the Map image from ***.png*** to a 2-D matrix of
 
 1. Change directory to the ***catkin_ws*** and clone this repository in the ***src*** folder.
 ```
-$ git clone 
+$ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
 ```
+
+2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/autonomous_navigation***.
