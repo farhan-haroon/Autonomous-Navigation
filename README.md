@@ -22,13 +22,9 @@ The first step is to generate a 2-D Map of the surroundings using the LIDAR and 
 
 Execute the following commands to run SLAM and generate the Map:
 
-1. Export the Turtle Bot 3 model to bring up basic packages
+1. Export the Turtle Bot 3 model and run the SLAM algorithm
 ```
 export TURTLEBOT3_MODEL=${TB3_MODEL}
-```
-
-
-2. Run the SLAM algorithm
-```
 roslaunch turtlebot3_slam turtlebot3_slam.launch
 ```
+
