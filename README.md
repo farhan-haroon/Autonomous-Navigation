@@ -72,4 +72,7 @@ The ***path_planner.py*** implements the ***A-Star*** algorithm on the matrix an
 
 ### Navigation:
 
-
+Open a new terminal and execute the following commands.
+```
+$ cd ~/catkin_ws/src/Autonomous-Navigation/
+```
