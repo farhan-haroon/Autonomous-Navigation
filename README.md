@@ -28,3 +28,8 @@ export TURTLEBOT3_MODEL=${TB3_MODEL}
 roslaunch turtlebot3_slam turtlebot3_slam.launch
 ```
 
+2. Open a new trminal and launch the Tele-operation node
+```
+$ export TURTLEBOT3_MODEL=${TB3_MODEL}
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
