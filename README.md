@@ -26,3 +26,7 @@ Execute the following commands to run SLAM and generate the Map:
 ```
 roscore
 ```
+2. Connect to the Raspberry Pi on it's IP address through ***ssh*** in a new terminal.
+```
+ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
+```
