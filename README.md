@@ -56,4 +56,6 @@ $ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
 2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/Autonomous-Navigation*** and delete the previous map image present.
 
 3. Open the package folder in a code editor (like VSCode) and load the ***map_maker.py*** file.
-4. Paste the path of the map image in the line 
+4. Paste the path of the map image in the line 6 and adjust the dimensions of the map matrix according to yourself in the line 
+5. Uncomment the last nested ***for*** loop and run the program.
+6. The 
