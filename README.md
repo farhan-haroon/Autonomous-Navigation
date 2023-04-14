@@ -22,3 +22,7 @@ The first step is to generate a 2-D Map of the surroundings using the LIDAR and 
 
 Execute the following commands to run SLAM and generate the Map:
 
+1. Run _roscore_ from remote PC
+'''
+roscore
+'''
