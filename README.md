@@ -22,11 +22,13 @@ The first step is to generate a 2-D Map of the surroundings using the LIDAR and 
 
 Execute the following commands to run SLAM and generate the Map:
 
-1. Run ***roscore*** from remote PC
+1. Export the Turtle Bot 3 model to bring up basic packages
 ```
-roscore
+export TURTLEBOT3_MODEL=$waffle_pi
 ```
-2. Connect to the Raspberry Pi on it's IP address through ***ssh*** in a new terminal.
+Replace 'waffle_pi' with your Turtle Bot model
+
+2. Run the SLAM algorithm
 ```
-ssh ubuntu@{IP_ADDRESS_OF_RASPBERRY_PI}
+roslaunch turtlebot3_slam turtlebot3_slam.launch
 ```
