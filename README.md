@@ -13,7 +13,8 @@ The steps to setup and run the **Turtle Bot 3** are given on the [official websi
 * Python - 2.7 or above
 
 ## Steps to run:
-It is assumed that the robot is fully setup. 
+It is assumed that the robot is fully setup. [**Note:** While calibration, place the Turtle Bot in such a way that the maze or the area to be covered lies in the positive quadrant of it's Odometry cartesian plane.]
+
 Execute the following steps to implement Autonomous Navigation on your robot:
 
 ### SLAM: 
