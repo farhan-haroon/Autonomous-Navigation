@@ -72,13 +72,26 @@ The ***path_planner.py*** implements the ***A-Star*** algorithm on the matrix an
 
 ### Navigation:
 
-1. Open the ***auto_nav.py*** in the editor and paste the path copied from ***path_planner.py*** in the line 
+1. Open the ***auto_nav.py*** in the editor and paste the path copied from ***path_planner.py*** in the line 108.
 
-Open a new terminal and execute the following commands [It is assumed that the bringup is launched and the robot is placed and calibrated as mentioned earlier].
+2. Open a new terminal and execute the following commands [It is assumed that the bringup is launched and the robot is placed and calibrated as mentioned earlier].
 ```
 $ cd ~/catkin_ws/src/ && catkin make
 $ source ~/.bashrc
 $ rosrun move_robot auto_nav.py
 ```
 
+3. Enter the size of 1 cell. [Size of 1 cell can be calculated by measuring the length of 1 side of the real maze and dividing it by the number of cells it is represented by in the matrix].
 
+4. Enter the X and the Y offsets. [X and Y offsets are the X and the Y coordinates of the first tuple in the path. It is provided to subtract it from the path tuples X and Y coordinates so as to make the path as (0, 0), (1, 1), (2, 2) and so on].
+
+For eg.: if the path is like (15, 30), (16, 31), (17, 31) ... , then the X offset will be 15 and Y offset will be 30.
+
+5. Reversing the path provided will make the robot retrace it's steps back to the Start position.
+
+## Contact 
+
+For any bug reports or issues, please contact me at farhanhar[at]student[dot]iul[dot]ac[dot]in
+
+**Mohd Farhan Haroon**
+**Integral University, Lucknow.**
