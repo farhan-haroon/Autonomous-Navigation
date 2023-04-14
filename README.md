@@ -16,7 +16,7 @@ The steps to setup and run the **Turtle Bot 3** are given on the [official websi
 It is assumed that the robot is fully setup. 
 Execute the following steps to implement Autonomous Navigation on your robot:
 
-1. ### SLAM: 
+### SLAM: 
       
 The first step is to generate a 2-D Map of the surroundings using the LIDAR and the SLAM (Simultaneous Localisation And Mapping) algorithm.
 
