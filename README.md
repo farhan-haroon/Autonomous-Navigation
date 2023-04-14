@@ -17,10 +17,8 @@ It is assumed that the robot is fully setup.
 Execute the following steps to implement Autonomous Navigation on your robot:
 
 1. ### SLAM: 
-   
-Run SLAM - (Simultaneous Localisation And Mapping)
-   
-The first step is to generate a 2-D Map of the surroundings using the LIDAR.
+      
+The first step is to generate a 2-D Map of the surroundings using the LIDAR and the SLAM (Simultaneous Localisation And Mapping) algorithm.
 
 Execute the following commands to run SLAM and generate the Map:
 
