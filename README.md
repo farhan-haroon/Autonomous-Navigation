@@ -24,8 +24,8 @@ Execute the following commands to run SLAM and generate the Map:
 
 1. Export the Turtle Bot 3 model and run the SLAM algorithm
 ```
-export TURTLEBOT3_MODEL=${TB3_MODEL}
-roslaunch turtlebot3_slam turtlebot3_slam.launch
+$ export TURTLEBOT3_MODEL=${TB3_MODEL}
+$ roslaunch turtlebot3_slam turtlebot3_slam.launch
 ```
 
 2. Open a new trminal and launch the Tele-operation node
@@ -33,3 +33,17 @@ roslaunch turtlebot3_slam turtlebot3_slam.launch
 $ export TURTLEBOT3_MODEL=${TB3_MODEL}
 $ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
+
+Explore the area with the Tele-operation node to generate a complete map of the surroundings.
+
+The map is visualised using RViz that is launched with the SLAM node.
+
+3. Save the Map
+```
+$ rosrun map_server map_saver -f ~/map
+```
+THe destination folder to save the map can be defined after _-f_ (/home/${username}) in this case.
+
+### Matrix Generation
+
+The ***mapm***
