@@ -24,9 +24,9 @@ Execute the following commands to run SLAM and generate the Map:
 
 1. Export the Turtle Bot 3 model to bring up basic packages
 ```
-export TURTLEBOT3_MODEL=$waffle_pi
+export TURTLEBOT3_MODEL=${TB3_MODEL}
 ```
-Replace 'waffle_pi' with your Turtle Bot model
+
 
 2. Run the SLAM algorithm
 ```
