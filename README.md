@@ -44,6 +44,11 @@ $ rosrun map_server map_saver -f ~/map
 ```
 THe destination folder to save the map can be defined after _-f_ (/home/${username}) in this case.
 
-### Matrix Generation
+### Matrix Generation:
 
-The ***mapm***
+The ***map_maker.py*** converts the Map image from ***.png*** to a 2-D matrix of 0s and 1s. 0s represent the movalble white area of the map and 1s represent the obstacles in the map.
+
+1. Change directory to the ***catkin_ws*** and clone this repository in the ***src*** folder.
+```
+$ git clone 
+```
