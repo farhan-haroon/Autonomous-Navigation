@@ -72,7 +72,13 @@ The ***path_planner.py*** implements the ***A-Star*** algorithm on the matrix an
 
 ### Navigation:
 
-Open a new terminal and execute the following commands.
+1. Open the ***auto_nav.py*** in the editor and paste the path copied from ***path_planner.py*** in the line 
+
+Open a new terminal and execute the following commands [It is assumed that the bringup is launched and the robot is placed and calibrated as mentioned earlier].
 ```
-$ cd ~/catkin_ws/src/Autonomous-Navigation/
+$ cd ~/catkin_ws/src/ && catkin make
+$ source ~/.bashrc
+$ rosrun move_robot auto_nav.py
 ```
+
+
