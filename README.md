@@ -7,7 +7,7 @@ The differential drive robot that we have used is the **Turtle Bot 3 - Waffle Pi
 The steps to setup and run the **Turtle Bot 3** are given on the [official website](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/) of ROBOTIS.
 
 ## Pre-requisites:
-* Differential Drive Robot that runs ROS NOETIC 
+* Differential Drive Robot (Turtle Bot 3 here) 
 * Ubuntu 20.04 LTS - focal fossa
 * ROS NOETIC on host PC
 * Python - 2.7 or above
