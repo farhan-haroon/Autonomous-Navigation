@@ -53,10 +53,11 @@ The ***map_maker.py*** converts the Map image from ***.png*** to a 2-D matrix of
 
 1. Change directory to the ***catkin_ws*** and clone this repository in the ***src*** folder.
 ```
+$ cd ~/catkin_ws/src/
 $ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
 ```
 
-2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/move_robot*** and delete the previous map image present.
+2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/move_robot/scripts*** and delete the previous map image present.
 
 3. Open the package folder in a code editor (like VSCode) and load the ***map_maker.py*** file.
 
