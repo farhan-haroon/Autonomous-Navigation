@@ -55,6 +55,7 @@ The ***map_maker.py*** converts the Map image from ***.png*** to a 2-D matrix of
 ```
 $ cd ~/catkin_ws/src/
 $ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
+$ cd .. && catkin make
 ```
 
 2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/move_robot/scripts*** and delete the previous map image present.
