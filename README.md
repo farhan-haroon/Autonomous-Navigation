@@ -15,7 +15,7 @@ The steps to setup and run the **Turtle Bot 3** are given on the [official websi
 ## Steps to run:
 It is assumed that the robot is fully setup. 
 
-[`Note:` While calibration, place the Turtle Bot in such a way that the maze or the area to be covered lies in the positive quadrant of it's Odometry cartesian plane.]
+[**Note:** While calibration, place the Turtle Bot in such a way that the maze or the area to be covered lies in the positive quadrant of it's Odometry cartesian plane.]
 
 Execute the following steps to implement Autonomous Navigation on your robot:
 
@@ -74,7 +74,7 @@ The `path_planner.py` implements the `A-Star` algorithm on the matrix and finds 
 
 1. Open the `path_planner.py` in the editor and run the program.
 
-2. Enter the Start and the End co-ordinates by referring the saved matrix from the text file. [`Note:` The Start coordinates should be the current position of the robot in the real world.]
+2. Enter the Start and the End co-ordinates by referring the saved matrix from the text file. [**Note:** The Start coordinates should be the current position of the robot in the real world.]
 
 3. Also enter the size of the robot to give it wall clearance.
 
