@@ -1,5 +1,5 @@
 # Autonomous Navigation 
-This is a project that implements Single-Source-Shortest-Path finding - **A-Star** algorithm on **Differential Drive Robots** using **ROS** - (Robot Operating System) and **Wheel Odometry** developed by **Mohd Farhan Haroon** at **Integral University, Lucknow.**. 
+This is a project that implements Single-Source-Shortest-Path finding - **A-Star** algorithm on **Differential Drive Robots** using **ROS** - (Robot Operating System) and **Wheel Odometry** developed by **Mohd Farhan Haroon** at **Integral University, Lucknow**. 
 
 This repository is the software implementation of another project under development - **Autonomous Ground Cleaning Robot**. That project will utilise this Autonomous Navigation repository and will be built completely in-house at the **Integral Robotics Lab**.
 
@@ -8,7 +8,7 @@ The steps to setup and run the **Turtle Bot 3** are given on the [official websi
 
 ## Pre-requisites:
 * Differential Drive Robot (Turtle Bot 3 here) 
-* Ubuntu 20.04 LTS - focal fossa
+* Ubuntu 20.04 LTS - focal fossa (or earlier)
 * ROS NOETIC on host PC
 * Python - 2.7 or above
 
@@ -59,8 +59,11 @@ $ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
 2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/move_robot*** and delete the previous map image present.
 
 3. Open the package folder in a code editor (like VSCode) and load the ***map_maker.py*** file.
+
 4. Paste the path of the map image in the line 6 and adjust the dimensions of the map matrix according to yourself in the line 12 (rows should be equal to column)
+
 5. Uncomment the last nested ***for*** loop and run the program.
+
 6. The output printed is the map matrix in 0s and 1s in the defined dimensions. Copy the matrix and paste it in a separate text file for referencing co-ordinates.
 
 ### Path Planning:
@@ -68,9 +71,13 @@ $ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
 The ***path_planner.py*** implements the ***A-Star*** algorithm on the matrix and finds the shortest path between the given start and the end points.
 
 1. Open the ***path_planner.py*** in the editor and run the program.
+
 2. Enter the Start and the End co-ordinates by referring the saved matrix from the text file. [**Note:** The Start coordinates should be the current position of the robot in the real world.]
+
 3. Also enter the size of the robot to give it wall clearance.
+
 4. The output is the same matrix of the given dimensions with the path shown as the number '7' and the path is also printed as a list of tuples.
+
 5. Copy the list from the terminal.
 
 ### Navigation:
