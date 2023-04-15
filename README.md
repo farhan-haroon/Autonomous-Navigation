@@ -1,9 +1,9 @@
 # Autonomous Navigation 
-This is a project that implements Single-Source-Shortest-Path finding - **A-Star** algorithm on **Differential Drive Robots** using **ROS** - (Robot Operating System) and **Wheel Odometry** developed by **Mohd Farhan Haroon** at **Integral University, Lucknow**. 
+This is a project that implements Single-Source-Shortest-Path finding - `A-Star` algorithm on `Differential Drive Robots` using `ROS` - (Robot Operating System) and `Wheel Odometry` developed by `Mohd Farhan Haroon` at `Integral University, Lucknow`. 
 
-This repository is the software implementation of another project under development - **Autonomous Ground Cleaning Robot**. That project will utilise this Autonomous Navigation repository and will be built completely in-house at the **Integral Robotics Lab**.
+This repository is the software implementation of another project under development - `Autonomous Ground Cleaning Robot`. That project will utilise this Autonomous Navigation repository and will be built completely in-house at the `Integral Robotics Lab`.
 
-The differential drive robot that we have used is the **Turtle Bot 3 - Waffle Pi** from **ROBOTIS** that runs ROS - **NOETIC**.
+The differential drive robot that we have used is the `Turtle Bot 3 - Waffle Pi` from `ROBOTIS` that runs ROS - `NOETIC`.
 The steps to setup and run the **Turtle Bot 3** are given on the [official website](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/) of ROBOTIS.
 
 ## Pre-requisites:
@@ -15,7 +15,7 @@ The steps to setup and run the **Turtle Bot 3** are given on the [official websi
 ## Steps to run:
 It is assumed that the robot is fully setup. 
 
-[**Note:** While calibration, place the Turtle Bot in such a way that the maze or the area to be covered lies in the positive quadrant of it's Odometry cartesian plane.]
+[`Note:` While calibration, place the Turtle Bot in such a way that the maze or the area to be covered lies in the positive quadrant of it's Odometry cartesian plane.]
 
 Execute the following steps to implement Autonomous Navigation on your robot:
 
@@ -49,42 +49,42 @@ THe destination folder to save the map can be defined after _-f_ (/home/${userna
 
 ### Matrix Generation:
 
-The ***map_maker.py*** converts the Map image from ***.png*** to a 2-D matrix of 0s and 1s. 0s represent the movalble white area of the map and 1s represent the obstacles in the map.
+The `map_maker.py` converts the Map image from `.png` to a 2-D matrix of 0s and 1s. 0s represent the movalble white area of the map and 1s represent the obstacles in the map.
 
-1. Change directory to the ***catkin_ws*** and clone this repository in the ***src*** folder.
+1. Change directory to the `catkin_ws` and clone this repository in the `src` folder.
 ```
 $ cd ~/catkin_ws/src/
 $ git clone https://github.com/farhan-haroon/Autonomous-Navigation.git
 $ cd .. && catkin make
 ```
 
-2. Move the ***map.png*** from where it is saved (/home/${username} in this case) to the package folder in the ***~/catkin_ws/src/move_robot/scripts*** and delete the previous map image present.
+2. Move the `map.png` from where it is saved (/home/${username} in this case) to the package folder in the `~/catkin_ws/src/move_robot/scripts` and delete the previous map image present.
 
-3. Open the package folder in a code editor (like VSCode) and load the ***map_maker.py*** file.
+3. Open the package folder in a code editor (like VSCode) and load the `map_maker.py` file.
 
 4. Paste the path of the map image in the line 6 and adjust the dimensions of the map matrix according to yourself in the line 12 (rows should be equal to column)
 
-5. Uncomment the last nested ***for*** loop and run the program.
+5. Uncomment the last nested `for` loop and run the program.
 
 6. The output printed is the map matrix in 0s and 1s in the defined dimensions. Copy the matrix and paste it in a separate text file for referencing co-ordinates.
 
 ### Path Planning:
 
-The ***path_planner.py*** implements the ***A-Star*** algorithm on the matrix and finds the shortest path between the given start and the end points.
+The `path_planner.py` implements the `A-Star` algorithm on the matrix and finds the shortest path between the given start and the end points.
 
-1. Open the ***path_planner.py*** in the editor and run the program.
+1. Open the `path_planner.py` in the editor and run the program.
 
-2. Enter the Start and the End co-ordinates by referring the saved matrix from the text file. [**Note:** The Start coordinates should be the current position of the robot in the real world.]
+2. Enter the Start and the End co-ordinates by referring the saved matrix from the text file. [`Note:` The Start coordinates should be the current position of the robot in the real world.]
 
 3. Also enter the size of the robot to give it wall clearance.
 
-4. The output is the same matrix of the given dimensions with the path shown as the number '7' and the path is also printed as a list of tuples.
+4. The output is the same matrix of the given dimensions with the path shown as the number `7` and the path is also printed as a list of tuples.
 
 5. Copy the list from the terminal.
 
 ### Navigation:
 
-1. Open the ***auto_nav.py*** in the editor and paste the path copied from ***path_planner.py*** in the line 108.
+1. Open the `auto_nav.py` in the editor and paste the path copied from `path_planner.py` in the line 108.
 
 2. Open a new terminal and execute the following commands [It is assumed that the bringup is launched and the robot is placed and calibrated as mentioned earlier].
 ```
@@ -105,6 +105,6 @@ For eg.: if the path is like (15, 30), (16, 31), (17, 31) ... , then the X offse
 
 For any bug reports or issues, please contact me at farhanhar[at]student[dot]iul[dot]ac[dot]in
 
-**Mohd Farhan Haroon**
+`Mohd Farhan Haroon`
 
-**Integral University, Lucknow.**
+`Integral University, Lucknow.`
