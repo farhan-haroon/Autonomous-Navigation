@@ -103,7 +103,7 @@ For eg.: if the path is like (15, 30), (16, 31), (17, 31) ... , then the X offse
 
 ## Contact 
 
-For any bug reports or issues, please contact me at farhanhar[at]student[dot]iul[dot]ac[dot]in
+For any bug reports or issues, please contact me at `farhanhar[at]student[dot]iul[dot]ac[dot]in`
 
 `Mohd Farhan Haroon`
 
