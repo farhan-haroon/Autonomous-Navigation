@@ -8,7 +8,7 @@ The steps to setup and run the **Turtle Bot 3** are given on the [official websi
 
 ## Pre-requisites:
 * Differential Drive Robot (Turtle Bot 3 here) 
-* Ubuntu 20.04 LTS - focal fossa (or earlier)
+* Ubuntu 20.04 LTS - focal fossa (or earlier till 16.04 LTS)
 * ROS NOETIC on host PC
 * Python - 2.7 or above
 
