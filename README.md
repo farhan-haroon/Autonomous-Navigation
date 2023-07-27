@@ -1,4 +1,4 @@
-# Autonomous Navigation 
+# Autonomous Navigation using Wheel Odometry
 This is a project that implements Single-Source-Shortest-Path finding - `A-Star` algorithm on `Differential Drive Robots` using `ROS` - (Robot Operating System) and `Wheel Odometry` developed by `Mohd Farhan Haroon` at `Integral University, Lucknow`. 
 
 This repository is the software implementation of another project under development - `Autonomous Ground Cleaning Robot`. That project will utilise this Autonomous Navigation repository and will be built completely in-house at the `Integral Robotics Lab`.
