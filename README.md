@@ -21,14 +21,14 @@ Execute the following steps to implement Autonomous Navigation on your robot:
 
 ### SLAM: 
       
-The first step is to generate a 2-D Map of the surroundings using the LIDAR and the SLAM (Simultaneous Localisation And Mapping) algorithm.
+The first step is to generate a 2-D Map of the surroundings using the LIDAR and the `g_mapping` SLAM algorithm.
 
 Execute the following commands to run SLAM and generate the Map:
 
 1. Export the Turtle Bot 3 model and run the SLAM algorithm
 ```
 $ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ roslaunch turtlebot3_slam turtlebot3_slam.launch
+$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_method:=gmapping
 ```
 
 2. Open a new trminal and launch the Tele-operation node
