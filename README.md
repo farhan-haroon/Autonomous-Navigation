@@ -28,7 +28,7 @@ Execute the following commands to run SLAM and generate the Map:
 1. Export the Turtle Bot 3 model and run the SLAM algorithm
 ```
 $ export TURTLEBOT3_MODEL=${TB3_MODEL}
-$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_method:=gmapping
+$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
 ```
 
 2. Open a new trminal and launch the Tele-operation node
